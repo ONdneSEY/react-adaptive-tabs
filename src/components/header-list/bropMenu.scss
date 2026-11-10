@@ -1,0 +1,110 @@
+// ---------- БУРГЕР + ДРОПДАУН ----------
+.drop__menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 100%;
+
+  // кнопка
+  & > summary {
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 44px;
+    padding: 20px 13px;
+    background: var(--color-BG);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s;
+
+    &::after {
+      content: "";
+      border: solid var(--color-Text-Focus);
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 4px;
+      transition: 0.3s;
+      transform: rotate(45deg);
+    }
+  }
+
+  &[open] > summary {
+    background: var(--color-Acsent);
+    border-color: transparent;
+
+    &::after {
+      border-color: var(--color-Text-Active);
+      transform: rotate(-135deg);
+    }
+  }
+
+  // ---------- випадаючий список ----------
+  & > .menu {
+    position: absolute;
+    top: calc(100%);
+    right: 0;
+    width: max-content;
+    z-index: 100;
+
+    flex-direction: column;
+    margin: 0;
+    list-style: none;
+
+    background: var(--color-BG);
+    border: 1px solid var(--border);
+
+    // анімація
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.2s ease,
+      transform 0.25s ease,
+      padding 0.25s ease;
+  }
+
+  &[open] > .menu {
+    max-height: 70vh;
+    overflow-y: auto;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    padding: 0 15px;
+  }
+
+  & .menu__item {
+    padding: 0;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-bottom: 1px solid var(--border);
+
+    &:last-of-type {
+      border: 0;
+    }
+
+    &:hover {
+      background-color: var(--color-Text-Active);
+    }
+  }
+  & .menu__link {
+    border-right: 0;
+    padding: 15px 0;
+  }
+
+  & .del__butom {
+    transform: none;
+    display: flex;
+    background-color: var(--color-Text);
+    position: relative;
+  }
+}

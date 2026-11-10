@@ -1,0 +1,28 @@
+:root {
+  --color-BG: #fefefe;
+  --color-Bg-Focus: #7f858d;
+  --color-Bg-Active: #aeb6ce33;
+
+  --color-Text: #7f858d;
+  --color-Text-Focus: #343434;
+  --color-Text-Active: #ffffff;
+
+  --color-Acsent: #4690e2;
+
+  --border: #aeb6ce33;
+  --fons: "Poppins";
+}
+
+* {
+  font-family: var(--fons);
+  font-weight: 500;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}

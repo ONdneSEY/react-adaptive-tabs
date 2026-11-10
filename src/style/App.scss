@@ -1,0 +1,13 @@
+.conteinet {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+}
+
+main {
+  min-width: 0;
+}
+header {
+  height: 69px;
+  border: 1px solid var(--border);
+  border-top: 0;
+}
