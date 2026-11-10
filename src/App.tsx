@@ -1,5 +1,5 @@
 import { HeaderList } from "./components/header-list/headerList";
-import { Sandbox } from "./components/header-list/Sandbox";
+// import { Sandbox } from "./components/header-list/Sandbox";
 
 import "./style/App.scss";
 
@@ -10,9 +10,7 @@ function App() {
       <main className="main">
         <header></header>
         <HeaderList />
-        <section className="canvas">
-          <Sandbox />
-        </section>
+        <section className="canvas">{/* <Sandbox /> */}</section>
       </main>
     </div>
   );

@@ -1,0 +1,33 @@
+import type { TabItem } from "../../../type/type";
+
+type Props = {
+  hiddenItems: TabItem[];
+  putTab: (id: string) => void;
+  deleteTab: (e: React.MouseEvent<HTMLButtonElement>, id: string) => void;
+};
+
+export const VerticalList = ({ hiddenItems, deleteTab }: Props) => {
+  return (
+    <ul className="drop__list">
+      {hiddenItems.map((item) => (
+        <li
+          key={item.id}
+          className={`menu__item ${item.isActive ? "menu__item__active" : ""}`}
+        >
+          <a href={item.url} className="menu__link">
+            <img src={item.img} alt={item.alt} className="menu__icon" />
+            <span className="menu__text">{item.title}</span>
+          </a>
+          <button
+            className="del__buttom"
+            type="button"
+            aria-label="Видалити"
+            onClick={(e) => deleteTab(e, item.id)}
+          >
+            ×
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+};

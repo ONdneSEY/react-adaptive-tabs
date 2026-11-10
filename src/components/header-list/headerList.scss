@@ -1,73 +1,10 @@
 .header__menu {
   display: flex;
   position: relative;
+  height: fit-content;
 }
 
-.menu {
-  width: 100%;
-  background-color: var(--color-Bg-Active);
-
-  display: flex;
-  overflow: hidden;
-  position: relative;
-
-  &__item {
-    width: max-content;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    background-color: var(--color-BG);
-    position: relative;
-
-    &__active {
-      border-radius: 2px;
-      border-top: 1px solid var(--color-Acsent);
-      background-color: var(--color-Bg-Active);
-
-      .menu__link {
-        color: var(--color-Text-Focus);
-      }
-    }
-
-    &:hover {
-      background-color: var(--color-Bg-Active);
-
-      .menu__link {
-        color: var(--color-Text-Focus);
-      }
-      .del__butom {
-        display: flex;
-      }
-    }
-  }
-
-  &__link {
-    width: 100%;
-    display: flex;
-    gap: 10px;
-
-    padding-left: 20px;
-    padding-right: 20px;
-
-    color: var(--color-Text);
-
-    border-right: 1px solid var(--color-Bg-Active);
-    &:nth-last-child {
-      border: 0px;
-    }
-  }
-
-  &__icon {
-    color: var(--color-Text);
-  }
-
-  &__text {
-    width: 100%;
-
-    white-space: nowrap;
-  }
-}
-
-.del__butom {
+.del__buttom {
   display: none;
   justify-content: center;
   align-items: center;
@@ -84,4 +21,19 @@
   right: -2px;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.open__side-bar {
+  border: 0;
+  outline: 0;
+  padding: 15px 20px;
+  max-height: 47px;
+
+  background-color: var(--color-BG);
+
+  &:hover {
+    background-color: var(--color-Bg-Active);
+    border-top: 2px solid var(--color-Bg-Focus);
+    padding-top: 13px;
+  }
 }

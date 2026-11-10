@@ -1,0 +1,97 @@
+// ---------- БУРГЕР + ДРОПДАУН ----------
+.drop__menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-left: 1px solid var(--border);
+  max-height: 46px;
+
+  & .drop__taggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+
+    &__icon {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-right: 3px solid var(--color-Text);
+      border-bottom: 3px solid var(--color-Text);
+      transform: rotate(45deg);
+      transition: transform 0.3s ease;
+      margin-top: -4px;
+    }
+  }
+
+  &.is-open {
+    & .drop__taggle {
+      background-color: var(--color-Acsent);
+    }
+
+    & .drop__taggle__icon {
+      transform: rotate(-135deg);
+      border-color: var(--color-BG);
+    }
+  }
+
+  & .drop__list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 15px;
+    border: 1px solid var(--border);
+    background-color: var(--color-BG);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+  }
+
+  &.is-open .drop__list {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  & .menu__item {
+    padding: 0;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-bottom: 1px solid var(--border);
+
+    &:last-of-type {
+      border: 0;
+    }
+
+    &:hover {
+      background-color: var(--color-Text-Active);
+    }
+  }
+  & .menu__link {
+    border-right: 0;
+    padding: 15px 0;
+  }
+
+  & .del__butom {
+    transform: none;
+    display: flex;
+    background-color: var(--color-Text);
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
