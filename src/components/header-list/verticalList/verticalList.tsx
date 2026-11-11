@@ -1,4 +1,10 @@
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+
 import type { TabItem } from "../../../type/type";
+import { SortableTab } from "../SortableTab";
 
 type Props = {
   hiddenItems: TabItem[];
@@ -6,28 +12,22 @@ type Props = {
   deleteTab: (e: React.MouseEvent<HTMLButtonElement>, id: string) => void;
 };
 
-export const VerticalList = ({ hiddenItems, deleteTab }: Props) => {
+export const VerticalList = ({ hiddenItems, putTab, deleteTab }: Props) => {
   return (
-    <ul className="drop__list">
-      {hiddenItems.map((item) => (
-        <li
-          key={item.id}
-          className={`menu__item ${item.isActive ? "menu__item__active" : ""}`}
-        >
-          <a href={item.url} className="menu__link">
-            <img src={item.img} alt={item.alt} className="menu__icon" />
-            <span className="menu__text">{item.title}</span>
-          </a>
-          <button
-            className="del__buttom"
-            type="button"
-            aria-label="Видалити"
-            onClick={(e) => deleteTab(e, item.id)}
-          >
-            ×
-          </button>
-        </li>
-      ))}
-    </ul>
+    <SortableContext
+      items={hiddenItems.map((i) => i.id)}
+      strategy={verticalListSortingStrategy}
+    >
+      <ul className="drop__list">
+        {hiddenItems.map((item) => (
+          <SortableTab
+            key={item.id}
+            item={item}
+            putTab={putTab}
+            deleteTab={deleteTab}
+          />
+        ))}
+      </ul>
+    </SortableContext>
   );
 };

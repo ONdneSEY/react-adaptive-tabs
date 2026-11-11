@@ -1,3 +1,4 @@
+// import { DragEndDrop } from "./components/header-list/gragEndDrop";
 import { HeaderList } from "./components/header-list/headerList";
 // import { Sandbox } from "./components/header-list/Sandbox";
 
@@ -10,7 +11,7 @@ function App() {
       <main className="main">
         <header></header>
         <HeaderList />
-        <section className="canvas">{/* <Sandbox /> */}</section>
+        <section className="canvas">{/* <DragEndDrop /> */}</section>
       </main>
     </div>
   );

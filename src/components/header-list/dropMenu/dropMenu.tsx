@@ -9,10 +9,15 @@ type Props = {
   hiddenItems: TabItem[];
   putTab: (id: string) => void;
   deleteTab: (e: React.MouseEvent<HTMLButtonElement>, id: string) => void;
+  isDragging: boolean;
 };
 
 export const DropMenu = ({ hiddenItems, putTab, deleteTab }: Props) => {
   const [isDroped, setIsDroped] = useState(false);
+
+  if (hiddenItems.length === 0) {
+    return;
+  }
 
   return (
     <div className={`drop__menu ${isDroped ? "is-open" : ""}`}>

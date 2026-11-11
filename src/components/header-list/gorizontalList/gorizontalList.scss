@@ -33,8 +33,22 @@
       .menu__link {
         color: var(--color-Text-Focus);
       }
-      .del__butom {
+      .del__buttom {
         display: flex;
+      }
+    }
+
+    &__drag {
+      background-color: var(--color-Bg-Focus) !important;
+      padding-right: 20px;
+      padding-left: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+
+      .menu__text {
+        color: var(--color-Text-Active);
       }
     }
   }
